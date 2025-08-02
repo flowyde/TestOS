@@ -1,4 +1,4 @@
-GPPPARAMS = -m32 -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-rtti -fno-exceptions -fno-leading-underscore
+GPPPARAMS = -m32 -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-rtti -fno-exceptions -fno-leading-underscore -fno-stack-protector
 ASPARAMS = --32
 LDPARAMS = -melf_i386
 
@@ -7,7 +7,7 @@ ISO_DIR = iso
 GRUB_DIR = iso/boot/grub/grub.cfg
 BUILD_DIR = build
 
-objects = loader.o kernel.o
+objects = loader.o gdt.o kernel.o
 
 %.o: %.cpp
 	g++ $(GPPPARAMS) -o $@ -c $<
@@ -41,4 +41,3 @@ run: mykernel.iso
 
 clean:
 	rm -f *.o mykernel.bin
-	rm -rf $(ISO_DIR) $(BUILD_DIR)
