@@ -39,5 +39,6 @@ mykernel.iso: mykernel.bin
 run: mykernel.iso
 	qemu-system-x86_64 -cdrom $(ISO_NAME)
 
+.PHONY: clean
 clean:
-	rm -f *.o mykernel.bin
+	rm -f $(objects) mykernel.bin mykernel.iso
