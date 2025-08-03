@@ -18,7 +18,7 @@ void printf(const char* str){
             x++;
             break;
         }
-        
+
         if(x >= 80){
             y++;
             x = 0
@@ -43,7 +43,7 @@ extern "C" void callConstructors(){
 }
 
 extern "C" void kernelMain(const void* multiboot_structure, uint32_t magicnumber){
-    printf("Ola mundo !!");
+    printf("Ola mundo !!\n");
     printf("Ola mundo DOIS AHAHA");
     
     GlobalDescriptorTable gdt;
